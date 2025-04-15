@@ -2,14 +2,14 @@
   "stats": {
     "suites": 2,
     "tests": 2,
-    "passes": 2,
+    "passes": 1,
     "pending": 0,
-    "failures": 0,
-    "start": "2025-04-15T09:52:46.330Z",
-    "end": "2025-04-15T09:52:54.236Z",
-    "duration": 7906,
+    "failures": 1,
+    "start": "2025-04-15T10:48:40.239Z",
+    "end": "2025-04-15T10:48:48.545Z",
+    "duration": 8306,
     "testsRegistered": 2,
-    "passPercent": 100,
+    "passPercent": 50,
     "pendingPercent": 0,
     "other": 0,
     "hasOther": false,
@@ -18,7 +18,7 @@
   },
   "results": [
     {
-      "uuid": "a55d461f-5b45-4603-8a3a-aeb442c83a9b",
+      "uuid": "059c5758-6f5b-4c0a-bb12-4e8433d2fbdf",
       "title": "",
       "fullFile": "",
       "file": "",
@@ -27,7 +27,7 @@
       "tests": [],
       "suites": [
         {
-          "uuid": "1d063371-b072-4f83-ba0c-1560aaaddb6e",
+          "uuid": "99ecb329-a5ef-4ff3-8740-256e05217dde",
           "title": "Customer Management Test",
           "fullFile": "C:\\Users\\RWIT\\crm-automation-js\\tests\\customercrud.test.js",
           "file": "\\tests\\customercrud.test.js",
@@ -36,7 +36,7 @@
               "title": "\"before all\" hook in \"Customer Management Test\"",
               "fullTitle": "Customer Management Test \"before all\" hook in \"Customer Management Test\"",
               "timedOut": false,
-              "duration": 2522,
+              "duration": 3354,
               "state": null,
               "speed": null,
               "pass": false,
@@ -45,8 +45,8 @@
               "context": null,
               "code": "driver = getDriver();\nloginPage = new LoginPage(driver);\ncustomerPage = new CustomerPage(driver);\nawait loginPage.open();\nawait loginPage.login('admin@crm.com', 'admin');",
               "err": {},
-              "uuid": "215b4001-1de1-4bd7-a483-330366bb9d0d",
-              "parentUUID": "1d063371-b072-4f83-ba0c-1560aaaddb6e",
+              "uuid": "3b790db6-6cc7-4f2f-8d90-e5db3f63d106",
+              "parentUUID": "99ecb329-a5ef-4ff3-8740-256e05217dde",
               "isHook": true,
               "skipped": false
             }
@@ -56,7 +56,7 @@
               "title": "\"after all\" hook in \"Customer Management Test\"",
               "fullTitle": "Customer Management Test \"after all\" hook in \"Customer Management Test\"",
               "timedOut": false,
-              "duration": 58,
+              "duration": 69,
               "state": null,
               "speed": null,
               "pass": false,
@@ -65,8 +65,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "afce8d0c-bb23-415d-a33f-6d3ce040d137",
-              "parentUUID": "1d063371-b072-4f83-ba0c-1560aaaddb6e",
+              "uuid": "5c4aa8a3-cdbe-48a5-bcc3-fd0fbc3011ff",
+              "parentUUID": "99ecb329-a5ef-4ff3-8740-256e05217dde",
               "isHook": true,
               "skipped": false
             }
@@ -76,35 +76,39 @@
               "title": "should add new customer",
               "fullTitle": "Customer Management Test should add new customer",
               "timedOut": false,
-              "duration": 1968,
-              "state": "passed",
-              "speed": "slow",
-              "pass": true,
-              "fail": false,
+              "duration": 1476,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
               "pending": false,
               "context": null,
               "code": "await customerPage.goToCustomers();\nawait customerPage.addCustomer('Manmeet', 'Singh', 'maansb2001@gmail.com','satna');\nconst alert = await customerPage.getSuccessAlertText();\nexpect(alert.toLowerCase()).to.include('success');",
-              "err": {},
-              "uuid": "33dbfde7-4299-4e30-9f3d-d0074b401b68",
-              "parentUUID": "1d063371-b072-4f83-ba0c-1560aaaddb6e",
+              "err": {
+                "message": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"Success\"]\"}\n  (Session info: chrome=135.0.7049.85)",
+                "estack": "NoSuchElementError: no such element: Unable to locate element: {\"method\":\"css selector\",\"selector\":\"*[id=\"Success\"]\"}\n  (Session info: chrome=135.0.7049.85)\n    at Object.throwDecodedError (node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (node_modules\\selenium-webdriver\\lib\\http.js:524:13)\n    at Executor.execute (node_modules\\selenium-webdriver\\lib\\http.js:456:28)\n    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:745:17)\n    at async toWireValue (node_modules\\selenium-webdriver\\lib\\webdriver.js:149:15)\n    at async C:\\Users\\RWIT\\crm-automation-js\\node_modules\\selenium-webdriver\\lib\\webdriver.js:195:16\n    at async forEachKey (node_modules\\selenium-webdriver\\lib\\webdriver.js:189:9)\n    at async convertKeys (node_modules\\selenium-webdriver\\lib\\webdriver.js:194:3)\n    at async thenableWebDriverProxy.execute (node_modules\\selenium-webdriver\\lib\\webdriver.js:743:22)\n    at async CustomerPage.getSuccessAlertText (pages\\customerpage.js:20:17)\n    at async Context.<anonymous> (tests\\customercrud.test.js:24:23)",
+                "diff": null
+              },
+              "uuid": "042838ba-e0cc-441d-aed8-cc5d30339efa",
+              "parentUUID": "99ecb329-a5ef-4ff3-8740-256e05217dde",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
-          "passes": [
-            "33dbfde7-4299-4e30-9f3d-d0074b401b68"
+          "passes": [],
+          "failures": [
+            "042838ba-e0cc-441d-aed8-cc5d30339efa"
           ],
-          "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 1968,
+          "duration": 1476,
           "root": false,
           "rootEmpty": false,
           "_timeout": 40000
         },
         {
-          "uuid": "a93e0a5c-342e-4d23-9489-c1c6025c982a",
+          "uuid": "4daf8c4a-4469-4635-8c6d-ba84f08285a7",
           "title": "Login Functionality",
           "fullFile": "C:\\Users\\RWIT\\crm-automation-js\\tests\\login.test.js",
           "file": "\\tests\\login.test.js",
@@ -113,7 +117,7 @@
               "title": "\"before all\" hook in \"Login Functionality\"",
               "fullTitle": "Login Functionality \"before all\" hook in \"Login Functionality\"",
               "timedOut": false,
-              "duration": 924,
+              "duration": 893,
               "state": null,
               "speed": null,
               "pass": false,
@@ -122,8 +126,8 @@
               "context": null,
               "code": "driver = await getDriver();\nloginpage =   new LoginPage(driver);",
               "err": {},
-              "uuid": "9ba7aa02-90c2-4632-b3f6-2e94c5ac18e2",
-              "parentUUID": "a93e0a5c-342e-4d23-9489-c1c6025c982a",
+              "uuid": "d37bda08-b98b-4aae-b944-185636d8db8b",
+              "parentUUID": "4daf8c4a-4469-4635-8c6d-ba84f08285a7",
               "isHook": true,
               "skipped": false
             }
@@ -133,7 +137,7 @@
               "title": "\"after all\" hook in \"Login Functionality\"",
               "fullTitle": "Login Functionality \"after all\" hook in \"Login Functionality\"",
               "timedOut": false,
-              "duration": 72,
+              "duration": 155,
               "state": null,
               "speed": null,
               "pass": false,
@@ -142,8 +146,8 @@
               "context": null,
               "code": "await driver.quit();",
               "err": {},
-              "uuid": "e6bccb17-ea62-48b6-afc2-0346521863ae",
-              "parentUUID": "a93e0a5c-342e-4d23-9489-c1c6025c982a",
+              "uuid": "1018d52f-7d1a-4a16-afc7-325f84cc5fd7",
+              "parentUUID": "4daf8c4a-4469-4635-8c6d-ba84f08285a7",
               "isHook": true,
               "skipped": false
             }
@@ -153,7 +157,7 @@
               "title": "should login with valid credentials",
               "fullTitle": "Login Functionality should login with valid credentials",
               "timedOut": false,
-              "duration": 2358,
+              "duration": 2351,
               "state": "passed",
               "speed": "slow",
               "pass": true,
@@ -162,20 +166,20 @@
               "context": null,
               "code": "await loginpage.open();\nawait loginpage.login('admin@crm.com', 'admin');\nconst currentUrl = await driver.getCurrentUrl();\nexpect(currentUrl).to.include('customers.html'); // Adjusted check",
               "err": {},
-              "uuid": "46fbc56b-23b9-4718-a3bc-1fc5fee83427",
-              "parentUUID": "a93e0a5c-342e-4d23-9489-c1c6025c982a",
+              "uuid": "467c34b7-6e76-4444-8382-9fafaaed66ba",
+              "parentUUID": "4daf8c4a-4469-4635-8c6d-ba84f08285a7",
               "isHook": false,
               "skipped": false
             }
           ],
           "suites": [],
           "passes": [
-            "46fbc56b-23b9-4718-a3bc-1fc5fee83427"
+            "467c34b7-6e76-4444-8382-9fafaaed66ba"
           ],
           "failures": [],
           "pending": [],
           "skipped": [],
-          "duration": 2358,
+          "duration": 2351,
           "root": false,
           "rootEmpty": false,
           "_timeout": 10000
